@@ -2,7 +2,7 @@ $(function(){
   $("form").submit(function(event){
     event.preventDefault();
     var num = $("input").val();
-    var countList = ["1, "];
+    var countList = ["1"];
     for(var i = 2; i <= num; i++){
       var output = i;
 
@@ -13,13 +13,11 @@ $(function(){
       } else if (output%3 === 0){
         output = "Ping";
       }
-      countList += output + ", ";
+      countList += ", " + output;
     }
 
-    alert(countList.split("").join(", "));
-    console.log(countList.split("").join(", "));
     $("#output").text(countList);
 
-  })
+  });
 
-})
+});
