@@ -8,6 +8,8 @@ $(function(){
 
       if(output%3 ===0) {
         output = "Ping";
+      } else if (output%5 === 0){
+        output = "Pong";
       }
       countList += output;
     }
