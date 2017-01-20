@@ -5,13 +5,16 @@ $(function(){
     var countList = [1];
     for(var i = 2; i <= num; i++){
       var output = i;
-      countList += output;
 
-      $("#output").text(countList.join(", "));
+      if(output%3 ===0) {
+        output = "Ping";
+      }
+      countList += output;
     }
 
-    alert(countList);
-
+    alert(countList.split("").join(", "));
+    console.log(countList.split("").join(", "));
+    $("#output").text(countList);
 
   })
 
