@@ -1,23 +1,30 @@
+// business logic
+function getPingPongCount(input){
+  var countList = ["1"];
+  for(var i = 2; i <= input; i++){
+    var output = i;
+
+    if(output%3 ===0 && output%5 ===0) {
+      output = "Ping-Pong";
+    } else if (output%5 === 0){
+      output = "Pong";
+    } else if (output%3 === 0){
+      output = "Ping";
+    }
+    countList += ", " + output;
+  }
+  return countList;
+}
+
+
+// user interface logic
 $(function(){
   $("form").submit(function(event){
     event.preventDefault();
-    var num = $("input").val();
-    var countList = ["1"];
-    for(var i = 2; i <= num; i++){
-      var output = i;
+    
+    var inputtedNumber = $("input").val();
+    var output = getPingPongCount(inputtedNumber);
 
-      if(output%3 ===0 && output%5 ===0) {
-        output = "Ping-Pong";
-      } else if (output%5 === 0){
-        output = "Pong";
-      } else if (output%3 === 0){
-        output = "Ping";
-      }
-      countList += ", " + output;
-    }
-
-    $("#output").text(countList);
-
+    $("#output").text(output);
   });
-
 });
